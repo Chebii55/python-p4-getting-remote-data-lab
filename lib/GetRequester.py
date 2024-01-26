@@ -11,8 +11,12 @@ class GetRequester:
         return response.content 
     
     def load_json(self):
-        json_content=json.loads(req.get_response_body())
-        return json_content
+        the_list = []
+        the_response = json.loads(self.get_response_body())
+        for list in the_response:
+            the_list.append(list)
+
+        return the_list
 
 # Example usage:
 req = GetRequester('https://learn-co-curriculum.github.io/json-site-example/endpoints/people.json')
